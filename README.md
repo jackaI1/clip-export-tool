@@ -101,4 +101,4 @@ The [design notes](docs/design.md) explain validation, aspect handling, caption 
 python3 -m unittest discover -v
 ```
 
-The 21-test automated suite checks real encoded videos with ffprobe, verifies caption visibility before, during and after a cue, measures output loudness, checks padding and cropping, and exercises catalogue updates and ordered rough cuts. [GitHub Actions](https://github.com/jackaI1/clip-export-tool/actions/workflows/test.yml) runs the suite on Python 3.9 and 3.12, then runs the bundled example. Its `example-exports` artifact contains the six clips and the rough cut for seven days after each run.
+The 21-test automated suite checks real encoded videos with ffprobe, verifies caption visibility before, during and after a cue, measures output loudness, checks padding and cropping, and exercises catalogue updates and ordered rough cuts. [GitHub Actions](https://github.com/jackaI1/clip-export-tool/actions/workflows/test.yml) runs the suite on Ubuntu 24.04 with Python 3.9 and 3.12, then runs the bundled example. Its `example-exports` artifact contains the six clips and the rough cut for seven days after each run.

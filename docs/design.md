@@ -38,4 +38,4 @@ Every FFmpeg process runs synchronously with a 30-minute timeout per invocation 
 
 `python3 -m unittest discover -v` runs both pure timing/validation checks and actual FFmpeg processing. Caption visibility tests decode output frames before, inside and after a source-timed cue. Aspect tests inspect a coloured square to detect stretching. Duration/dimension checks inspect ffprobe's output, while a fresh loudness measurement checks the encoded audio. Catalogue tests include stable reimports, literal searches, missing IDs, mixed sources with/without audio, CLI errors and the visible order of the assembled cut.
 
-CI installs FFmpeg and DejaVu fonts on Ubuntu, runs the full suite with Python 3.9 and 3.12, and renders the included public-domain sample. No credentials, remote service or runtime network access are needed.
+CI installs FFmpeg and DejaVu fonts on Ubuntu 24.04, runs the full suite with Python 3.9 and 3.12, and renders the included public-domain sample. No credentials, remote service or runtime network access are needed.
