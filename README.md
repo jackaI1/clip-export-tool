@@ -1,17 +1,16 @@
-# Clip export tool
+I merged this into my existing [lifeos-open project](https://github.com/jackaI1/lifeos-open/tree/main/projects/clip-export-tool). The current code is in `projects/clip-export-tool/` there. I kept the code here so older links still work.
 
-I built a clip export tool because I wanted one edit list to give me captioned videos for phone screens, square posts and regular widescreen playback. I choose the moments once, write captions against the original recording, and get ready-to-play video files in all three shapes.
+The move keeps the original layout, including `tests/test_editing.py`, `tests/test_catalogue.py`, `tests/__init__.py`, `tests/test_media.py`. I replaced the README with the report below and left out Git history, installed dependencies, caches and generated build output from the hub copy.
 
-I also keep a searchable catalogue of named moments and tags, so I can find footage later and join selected clips into a rough cut, a first assembly of a video. The included ten-second NASA sample lets you try the whole workflow without supplying your own footage.
+The 4 test source files moved with the code. No project-specific GitHub Actions workflow was retained; the report records the omitted checks, and the test sources can be run locally from the linked folder.
 
-After the setup below, this command makes six captioned videos from two selected moments:
+Omitted workflows: `clip-export-tool-test.yml`: The relocated workflow did not complete successfully within the migration batch. Local test sources remain available.
 
-```sh
-python3 -m clip_export export examples/trami.mp4 examples/edits.json \
-  --captions examples/captions.srt --out exports/demo
-```
+---
 
-Open the `.mp4` files in `exports/demo` with a video player. The default keeps the whole picture and adds black space where needed. Use a new output folder for another run; existing videos are protected from overwriting.
+# clip-export-tool
+
+I built a clip export tool to learn how the underlying idea works. This is a learning project.
 
 ## Setup
 
@@ -93,12 +92,12 @@ I export MP4 files using H.264 video at 30 frames per second and AAC stereo audi
 
 This is a repeatable cutting and export workflow. I still choose the cut points and write the captions myself. Cropping is centred and can remove an off-centre subject. Rough cuts use straight cuts, with no transitions or multitrack timeline, and AAC audio can add a small amount of padding at joins. Loudness normalisation cannot repair distorted recordings. The sample has a deliberately quiet generated tone, rather than original recorded audio; its [source, credit and reproduction command](examples/ATTRIBUTION.md) are included.
 
-## Design and checks
+## Tests and limits
 
-The [design notes](docs/design.md) explain validation, aspect handling, caption timing, catalogue storage and temporary-file cleanup. Python uses only its standard library; FFmpeg does the media processing. Exports are staged in temporary folders and published only after all requested clips finish. Source files are read only.
+There are 4 test source files in this copy. That source count does not establish an execution result. This is a source snapshot, and running it on a new machine may need environment-specific setup.
 
-```sh
-python3 -m unittest discover -v
-```
 
-The 21-test automated suite checks real encoded videos with ffprobe, verifies caption visibility before, during and after a cue, measures output loudness, checks padding and cropping, and exercises catalogue updates and ordered rough cuts. [GitHub Actions](https://github.com/jackaI1/clip-export-tool/actions/workflows/test.yml) runs the suite on Ubuntu 24.04 with Python 3.9 and 3.12, then runs the bundled example. Its `example-exports` artifact contains the six clips and the rough cut for seven days after each run.
+
+The relocated workflow did not complete successfully within the migration batch. Local test sources remain available.
+
+No project-specific GitHub Actions workflow was retained. The local test sources remain in this folder.
